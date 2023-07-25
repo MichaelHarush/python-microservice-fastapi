@@ -29,7 +29,7 @@ async def calculate_recall(version_id:int,segment_id: int|None=None):
             if pred.prediction_value==0 and pred.actual_obj.actual_value==1:
                 fn+=1
     message = RecallMessage(Version_id=version_id, Segment_id=segment_id, Recall=1.0*tp/(tp+fn))
-    await send_one(json.dumps(asdict(message)))
-    return Response(f'success calc recall for version {version_id} {f"and segment {segment_id}" if segment_id is not None else ""}')
+    send_one(json.dumps(asdict(message)))
+    return Response(json.dumps({'message': f'success calc recall for version {version_id} {f"and segment {segment_id}" if segment_id is not None else ""}'}))
 
 
