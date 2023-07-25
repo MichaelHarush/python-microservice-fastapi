@@ -1,0 +1,7 @@
+fastapi
+SQLAlchemy
+pydantic_settings
+uvicorn
+aiokafka
+kafka-python
+psycopg2-binary
