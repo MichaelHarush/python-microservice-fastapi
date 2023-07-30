@@ -11,7 +11,7 @@ class DBPrediction(Base):
     segment_id: Mapped[int]
     record_id: Mapped[str] = mapped_column(ForeignKey("actual.record_id"),primary_key=True)
     prediction_value: Mapped[int]
-    actual_obj = relationship(DBActual, primaryjoin=record_id == DBActual.record_id)
+    actual_obj: Mapped[DBActual] = relationship(DBActual, primaryjoin=record_id == DBActual.record_id)
 
 
 
